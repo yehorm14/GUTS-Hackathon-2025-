@@ -5,6 +5,9 @@ signal plant_finished_growing(frame_ended: int)
 
 @export var plant_stages:int = 3
 @export var grow_duration:int = 15
+var health:int = 50
+var second_life_used:bool = false
+var water:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
