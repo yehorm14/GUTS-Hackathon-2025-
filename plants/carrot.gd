@@ -7,8 +7,3 @@ func on_plant_ready():
 	health = 50
 	regen = 2
 	harvest = 2
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

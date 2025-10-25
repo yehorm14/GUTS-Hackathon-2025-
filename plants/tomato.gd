@@ -8,8 +8,3 @@ func on_plant_ready():
 	harvest = 3
 	regen = 3
 	water_usage = 70# Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

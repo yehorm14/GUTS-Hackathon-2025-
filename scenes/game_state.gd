@@ -148,7 +148,7 @@ func _process(delta: float) -> void:
 				candidate = parent.plant_redirect
 				candidate_is_redirect = true
 			elif parent is Plant:
-				candidate = parent
+				candidate = parent._plant_original
 				candidate_is_redirect = false
 			break
 
@@ -215,6 +215,8 @@ func _process(delta: float) -> void:
 				if slot and slot.seed and slot.amount > 0:
 					can_replant = true
 					slot.amount -= 1
+					
+					selected._plant_original = slot.seed
 				
 				selected.process_mode = Node.PROCESS_MODE_INHERIT
 				selected = null

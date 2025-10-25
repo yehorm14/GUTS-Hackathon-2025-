@@ -1,17 +1,18 @@
 extends AnimatedSprite2D
 class_name Plant
 
+@export var health:int = 50
 @export var plant_stages:int = 3
 @export var drink_timer:int = 5
 @export_multiline var item_description : String
+@export var water_usage = 0
+@export var _plant_original: Plant
 
+var _active_time: float = 0.0
+var _time_until_next_water_drink: float = 0.0
 
-var health:int = 50
 var second_life_used:bool = false
 var water:bool = true
-var water_usage = 0
-
-var _water_thread: Thread
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,24 +26,10 @@ func _ready() -> void:
 	on_start_grow()
 	on_plant_ready()
 	
+	_time_until_next_water_drink = drink_timer
+	
+	set_process(true)
 
-	_water_thread = Thread.new()
-	_water_thread.start(_drink)
-		
-	
-func _drink():
-	while true:
-		await get_tree().create_timer(drink_timer).timeout
-		if water: 		#need to add a check water function
-			pass
-		else:
-			if second_life_used == true:
-				death()
-				break
-			else:
-				death()
-			
-	
 func on_start_grow():
 	pass
 	
@@ -57,5 +44,18 @@ func death():
 		second_life_used = true
 
 func _process(delta: float) -> void:
-	pass
+	_active_time += delta
+	_time_until_next_water_drink = max(_time_until_next_water_drink - delta, 0.0)
+	if _time_until_next_water_drink == 0.0:
+		_on_drink_tick()
+		_time_until_next_water_drink = drink_timer
+		
+func _on_drink_tick() -> void:
+	if water:
+		pass
+	else:
+		if second_life_used:
+			death()
+		else:
+			death()
 	

@@ -7,6 +7,3 @@ func on_plant_ready():
 	regen = 5
 	health = 25
 	harvest = 5
-
-func _process(delta: float) -> void:
-	pass
