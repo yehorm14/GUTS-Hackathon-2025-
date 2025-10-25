@@ -1,33 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://tq7af35mqkyw"]
+[gd_scene load_steps=6 format=3 uid="uid://tq7af35mqkyw"]
 
 [ext_resource type="PackedScene" uid="uid://bg2xg15hge4ct" path="res://plants/defender_plant.tscn" id="1_8cqac"]
-[ext_resource type="Texture2D" uid="uid://2ycguaurxot8" path="res://art/plants/carrot.png" id="2_svy58"]
+[ext_resource type="Texture2D" uid="uid://drdqlam7dx5lb" path="res://art/plants/bamboo.png" id="2_8cqac"]
 [ext_resource type="Script" uid="uid://b3214n7bchq2l" path="res://plants/bamboo.gd" id="3_61ve3"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vq8n1"]
-atlas = ExtResource("2_svy58")
+[sub_resource type="AtlasTexture" id="AtlasTexture_svy58"]
+atlas = ExtResource("2_8cqac")
 region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qnj43"]
-atlas = ExtResource("2_svy58")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lsp8d"]
-atlas = ExtResource("2_svy58")
-region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ci32o"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vq8n1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qnj43")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lsp8d")
+"texture": SubResource("AtlasTexture_svy58")
 }],
 "loop": true,
 "name": &"default",
