@@ -1,5 +1,5 @@
 extends DefenderPlant
-
+var water_output:int = 10
 
 func on_plant_ready():
 	health = 300

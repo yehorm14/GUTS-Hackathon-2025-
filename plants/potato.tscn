@@ -50,3 +50,9 @@ func _process(delta: float) -> void:
 [node name="Potato" instance=ExtResource("1_mq7ns")]
 sprite_frames = SubResource("SpriteFrames_cju6u")
 script = SubResource("GDScript_qj8ys")
+item_description = "Medium water intake 
+Long growtime 
+Fast regeneration
+Extremely high health
+Really low harvest
+"
