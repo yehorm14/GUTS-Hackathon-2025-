@@ -1,5 +1,6 @@
 extends Plant
 
+
 func on_plant_ready():
 	pass
 
