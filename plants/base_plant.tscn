@@ -1,6 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4ww7gy65glav"]
+[gd_scene load_steps=7 format=3 uid="uid://c4ww7gy65glav"]
 
+[ext_resource type="Texture2D" uid="uid://2ycguaurxot8" path="res://art/carrot.png" id="1_bfn2x"]
 [ext_resource type="Script" uid="uid://q4k5qhsdsvj7" path="res://plants/base_plant.gd" id="1_fcrfm"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq8n1"]
+atlas = ExtResource("1_bfn2x")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnj43"]
+atlas = ExtResource("1_bfn2x")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsp8d"]
+atlas = ExtResource("1_bfn2x")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u3brp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vq8n1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnj43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsp8d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="BasePlant" type="AnimatedSprite2D"]
+position = Vector2(26, 15)
+sprite_frames = SubResource("SpriteFrames_u3brp")
 script = ExtResource("1_fcrfm")
