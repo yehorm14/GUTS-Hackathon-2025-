@@ -1,6 +1,7 @@
 extends Plant
 class_name ProducerPlant
 var regen:int = 0
+var harvest:int = 0
 
 func on_plant_ready():
 	pass 

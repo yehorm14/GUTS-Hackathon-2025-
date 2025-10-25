@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://15dbe6g03v5g"]
 
-[ext_resource type="PackedScene" uid="uid://bk4r3b6bwsm7o" path="res://plants/producer_plant.tscn" id="1_dqhe1"]
+[ext_resource type="PackedScene" uid="uid://c5e5tcbdmjbyt" path="res://plants/producer_plant.tscn" id="1_dqhe1"]
 [ext_resource type="Texture2D" uid="uid://y5dubb47e6fm" path="res://art/plants/tomato.png" id="2_dqhe1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xbxrs"]
@@ -49,5 +49,9 @@ func _process(delta: float) -> void:
 
 [node name="Tomato" instance=ExtResource("1_dqhe1")]
 sprite_frames = SubResource("SpriteFrames_3ydhu")
-centered = false
 script = SubResource("GDScript_s1urp")
+item_description = "medium water intake 
+low growtime 
+medium  regeneration
+medium health
+medium harvest"

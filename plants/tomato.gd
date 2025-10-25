@@ -2,8 +2,12 @@ extends ProducerPlant
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func on_plant_ready():
+	grow_duration = 6 
+	health = 30
+	harvest = 3
+	regen = 3
+	water_usage = 70# Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
