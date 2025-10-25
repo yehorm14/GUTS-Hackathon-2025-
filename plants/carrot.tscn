@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmkug5eoggtxb"]
+
+[ext_resource type="Texture2D" uid="uid://2ycguaurxot8" path="res://art/carrot.png" id="1_p0o0d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq8n1"]
+atlas = ExtResource("1_p0o0d")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnj43"]
+atlas = ExtResource("1_p0o0d")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsp8d"]
+atlas = ExtResource("1_p0o0d")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5uiee"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vq8n1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnj43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsp8d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Carrot" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_5uiee")
+frame = 2

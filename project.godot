@@ -11,5 +11,22 @@ config_version=5
 [application]
 
 config/name="hackathon 2025"
+run/main_scene="uid://cp7wurbcnv444"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=512
+window/size/viewport_height=384
+window/size/window_width_override=1024
+window/size/window_height_override=768
+window/stretch/mode="canvas_items"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+textures/default_filters/use_nearest_mipmap_filter=true
+textures/default_filters/anisotropic_filtering_level=0
+textures/decals/filter=0
+textures/light_projectors/filter=0
