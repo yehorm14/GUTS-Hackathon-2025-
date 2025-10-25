@@ -19,6 +19,12 @@ var _water_thread: Thread
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if process_mode == PROCESS_MODE_DISABLED:
+		while true:
+			await get_tree().process_frame
+			if process_mode != PROCESS_MODE_DISABLED:
+				break
+	
 	frame = 0
 	on_plant_ready()
 	
@@ -50,7 +56,8 @@ func _drink():
 			
 	
 func _exit_tree():
-	_grow_thread.wait_to_finish()
+	if _grow_thread:
+		_grow_thread.wait_to_finish()
 			
 func on_plant_ready():
 	pass
