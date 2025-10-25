@@ -7,8 +7,9 @@ extends Node
 @onready var cursor: Sprite2D = get_parent().get_node("Cursor")
 
 var inventory := InventoryContainer.new([])
-var inventory_slots_amount = 5
+var inventory_slots_amount = 8
 
+var selected_slot : int
 var selected : Node
 var selector : Node
 
@@ -27,9 +28,15 @@ const TILE_DATA := {
 	},
 }
 
+var SHADER_MATERIAL = ShaderMaterial.new()
+var SHADER_TEX = preload("res://shaders/outline.gdshader")
+
+var mouse_down: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
+	SHADER_MATERIAL.shader = SHADER_TEX
+		
 	for index in range(inventory_slots_amount):
 		var ui = inventoryUI.get_node(str(0))
 		if !(index == 0):
@@ -42,13 +49,14 @@ func _ready() -> void:
 	
 	var inv_button = inventory.slots.get(0)
 	inv_button.seed = load("res://plants/sunflower.tscn").instantiate()
-	inv_button.amount = 3
+	inv_button.amount = 25
 	
-func seed_selected(seed: Plant):
+func seed_selected(seed: Plant, slot: int):
 	if !seed:
 		if selected:
 			selected.queue_free()
 		return
+	selected_slot = slot
 	selected = seed.duplicate()
 	selected.process_mode = Node.PROCESS_MODE_DISABLED
 	selected.frame = 0
@@ -63,8 +71,6 @@ func pos_to_tile_pos(pos: Vector2):
 	
 func can_place_at(tile_pos: Vector2):
 	var mouse_pos := tile_pos * 16
-	
-	print(mouse_pos)
 	
 	var w2D = get_parent().get_world_2d()
 	var space = w2D.direct_space_state
@@ -81,12 +87,10 @@ func can_place_at(tile_pos: Vector2):
 	if tile_info:
 		return tile_info.Placeable
 		
-	
 	return false
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-		
 	var tile_pos = pos_to_tile_pos(get_viewport().get_mouse_position())
 	if !selected: 
 		cursor.position = Vector2(-32, -32) 
@@ -94,27 +98,45 @@ func _process(delta: float) -> void:
 		
 	selected.position = tile_pos * 16
 	cursor.position = tile_pos * 16
+	
+	if mouse_down:
+		if selected and can_place_at(tile_pos):
+			var pre_clone_selected = selected.duplicate()
+			
+			selected.reparent(plants)
+			
+			selected.material = SHADER_MATERIAL
+			
+			var area2D = Area2D.new()
+			var colshape2D = CollisionShape2D.new()
+			var rectshape = RectangleShape2D.new()
+			colshape2D.position = Vector2(8, 8)
+			rectshape.size = Vector2(16, 16)
+			
+			area2D.add_child(colshape2D)
+			colshape2D.shape = rectshape
+			
+			selected.add_child(area2D)
+			
+			var can_replant = false
+			var slot = inventory.slots.get(selected_slot)
+			if slot and slot.seed and slot.amount > 0:
+				can_replant = true
+				slot.amount -= 1
+			
+			selected.process_mode = Node.PROCESS_MODE_INHERIT
+			selected = null
+			
+			if slot.amount > 0:
+				selected = pre_clone_selected.duplicate()
+				selected.process_mode = Node.PROCESS_MODE_DISABLED
+				selected.frame = 0
+				get_parent().add_child(selected)
+				get_parent().move_child(selected, -3)
+			else:
+				slot.seed = null
+			
 		
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if event.pressed:
-			print("Mouse Click/Unclick at: ", event.position)
-			var tile_pos = pos_to_tile_pos(event.position)
-			if selected and can_place_at(tile_pos):
-				selected.reparent(plants)
-				
-				var area2D = Area2D.new()
-				var colshape2D = CollisionShape2D.new()
-				var rectshape = RectangleShape2D.new()
-				colshape2D.position = Vector2(8, 8)
-				rectshape.size = Vector2(16, 16)
-				
-				area2D.add_child(colshape2D)
-				colshape2D.shape = rectshape
-				
-				selected.add_child(area2D)
-				
-				selected.process_mode = Node.PROCESS_MODE_INHERIT
-				selected = null
-				
-			
+		mouse_down = event.pressed
