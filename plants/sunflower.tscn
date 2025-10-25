@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://yjjsobxtybot"]
+
+[ext_resource type="PackedScene" uid="uid://bk4r3b6bwsm7o" path="res://plants/producer_plant.tscn" id="1_1v8gv"]
+[ext_resource type="Texture2D" uid="uid://bcjxp8tj5k7re" path="res://art/plants/suflower.png" id="2_1v8gv"]
+[ext_resource type="Script" uid="uid://ca7qkr8hxvha6" path="res://plants/sunflower.gd" id="3_8fgmt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq7h7"]
+atlas = ExtResource("2_1v8gv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fgmt"]
+atlas = ExtResource("2_1v8gv")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ipjm"]
+atlas = ExtResource("2_1v8gv")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ipjm"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq7h7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fgmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ipjm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Sunflower" instance=ExtResource("1_1v8gv")]
+sprite_frames = SubResource("SpriteFrames_4ipjm")
+script = ExtResource("3_8fgmt")
