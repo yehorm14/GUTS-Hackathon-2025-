@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://tq7af35mqkyw"]
 
-[ext_resource type="PackedScene" uid="uid://bg2xg15hge4ct" path="res://plants/defender_plant.tscn" id="1_8cqac"]
+[ext_resource type="PackedScene" uid="uid://c04qbuo717w7r" path="res://plants/defender_plant.tscn" id="1_8cqac"]
 [ext_resource type="Texture2D" uid="uid://drdqlam7dx5lb" path="res://art/plants/bamboo.png" id="2_8cqac"]
 [ext_resource type="Script" uid="uid://b3214n7bchq2l" path="res://plants/bamboo.gd" id="3_61ve3"]
 
@@ -23,6 +23,3 @@ animations = [{
 [node name="Bamboo" instance=ExtResource("1_8cqac")]
 sprite_frames = SubResource("SpriteFrames_ci32o")
 script = ExtResource("3_61ve3")
-plant_stages = null
-drink_timer = null
-item_description = null

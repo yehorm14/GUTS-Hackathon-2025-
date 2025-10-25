@@ -23,12 +23,10 @@ func _ready() -> void:
 				break
 	
 	frame = 0
-	on_start_grow()
 	on_plant_ready()
+	on_start_grow()
 	
 	_time_until_next_water_drink = drink_timer
-	
-	set_process(true)
 
 func on_start_grow():
 	pass

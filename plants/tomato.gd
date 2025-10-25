@@ -8,3 +8,4 @@ func on_plant_ready():
 	harvest = 3
 	regen = 3
 	water_usage = 70# Replace with function body.
+	plant_stages = 3

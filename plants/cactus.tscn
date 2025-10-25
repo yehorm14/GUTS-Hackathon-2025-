@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://6gnnpxqy1h0y"]
 
-[ext_resource type="PackedScene" uid="uid://bg2xg15hge4ct" path="res://plants/defender_plant.tscn" id="1_1xvfr"]
+[ext_resource type="PackedScene" uid="uid://c04qbuo717w7r" path="res://plants/defender_plant.tscn" id="1_1xvfr"]
 [ext_resource type="Texture2D" uid="uid://jvb4vxy7xqh8" path="res://art/plants/cactus.png" id="2_1xvfr"]
 [ext_resource type="Script" uid="uid://dwjma1u2xcaif" path="res://plants/cactus.gd" id="3_txfd0"]
 

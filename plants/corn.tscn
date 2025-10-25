@@ -37,3 +37,4 @@ animations = [{
 [node name="corn" instance=ExtResource("1_phewc")]
 sprite_frames = SubResource("SpriteFrames_tdr8b")
 script = ExtResource("3_xb4j8")
+grow_duration = 15

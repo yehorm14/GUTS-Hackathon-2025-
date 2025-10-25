@@ -7,3 +7,4 @@ func on_plant_ready():
 	health = 50
 	regen = 2
 	harvest = 2
+	plant_stages = 3

@@ -8,3 +8,4 @@ func _ready() -> void:
 	regen = 5
 	health = 100
 	harvest = 1 # Replace with function body.
+	plant_stages = 3

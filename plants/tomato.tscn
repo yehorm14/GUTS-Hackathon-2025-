@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c5e5tcbdmjbyt" path="res://plants/producer_plant.tscn" id="1_dqhe1"]
 [ext_resource type="Texture2D" uid="uid://y5dubb47e6fm" path="res://art/plants/tomato.png" id="2_dqhe1"]
+[ext_resource type="Script" uid="uid://cnghw5fkoi2v5" path="res://plants/tomato.gd" id="3_xbxrs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xbxrs"]
 atlas = ExtResource("2_dqhe1")
@@ -33,25 +34,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="GDScript" id="GDScript_s1urp"]
-script/source = "extends ProducerPlant
-
-
-# Called when the node enters the scene tree for the first time.
-func on_plant_ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
 [node name="Tomato" instance=ExtResource("1_dqhe1")]
 sprite_frames = SubResource("SpriteFrames_3ydhu")
-script = SubResource("GDScript_s1urp")
-item_description = "medium water intake 
-low growtime 
-medium  regeneration
-medium health
-medium harvest"
+script = ExtResource("3_xbxrs")
+grow_duration = 15

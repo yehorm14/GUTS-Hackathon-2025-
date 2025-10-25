@@ -7,7 +7,7 @@ var regen:int = 0
 var harvest:int = 0
 @export var grow_duration:int = 15
 
-var _time_until_next_growth:float = 0.0
+var _time_until_next_growth:float = 1.0
 var _active_grow_time:float = 0.0
 
 func on_start_grow():
@@ -23,8 +23,7 @@ func _process(delta: float) -> void:
 
 	_active_grow_time += delta
 	_time_until_next_growth = max(_time_until_next_growth - delta, 0.0)
-
-	print("hi", _time_until_next_growth)
+	
 	if _time_until_next_growth == 0.0:
 		frame = min(frame + 1, plant_stages - 1)
 		if frame < plant_stages - 1:

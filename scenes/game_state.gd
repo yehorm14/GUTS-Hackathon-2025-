@@ -58,7 +58,7 @@ const TILE_DATA := {
 var SHADER_TEX = preload("res://shaders/outline.gdshader")
 var mouse_down: bool = false
 
-var hover_target: Plant = null
+var hover_target = null
 var hover_is_redirect := false
 var hover_time := 0.0
 const REDIRECT_DELAY := 0.2
@@ -138,17 +138,17 @@ func _process(delta: float) -> void:
 	
 	var hits = get_parent().get_world_2d().direct_space_state.intersect_point(query)
 	var plant_hit: Plant
-	var candidate: Plant = null
+	var candidate = null
 	var candidate_is_redirect := false
 	
 	for h in hits:
 		if h.collider.name == "InfoBox":
 			var parent = h.collider.get_parent()
 			if "plant_redirect" in parent:
-				candidate = parent.plant_redirect
+				candidate = parent
 				candidate_is_redirect = true
 			elif parent is Plant:
-				candidate = parent._plant_original
+				candidate = parent
 				candidate_is_redirect = false
 			break
 
@@ -165,22 +165,50 @@ func _process(delta: float) -> void:
 	
 	infoText.visible = show
 	if show:
+		var plant_original
+		if "plant_redirect" in candidate:
+			plant_original = candidate.plant_redirect
+		elif candidate is Plant:
+			plant_original = candidate._plant_original
+			
 		if hover_is_redirect:
-			infoText.text = hover_target.name \
+			infoText.text = plant_original.name \
 							+ "\n" \
-							+ hover_target.item_description
+							+ plant_original.item_description
 		else:
-			infoText.text = hover_target.name \
-							+ "\nActive" \
-							+ "\n" \
-							+ hover_target.item_description
+			var is_producer = plant_original is ProducerPlant
+
+			var lines: Array[String] = []
+			lines.append(plant_original.name)
+
+			lines.append("Active")
+			lines.append("Next water in: %0.1fs" % hover_target._time_until_next_water_drink)
+
+			if is_producer:
+				var p := hover_target as ProducerPlant
+				print(p.frame, p.plant_stages - 1)
+				if p.frame < p.plant_stages - 1:
+					lines.append("Next growth in: %0.1fs" % p._time_until_next_growth)
+				else:
+					lines.append("Fully grown")
+
+			infoText.text = String("\n").join(lines)
 		infoText.reset_size()
 		var label_size := infoText.size 
 		var vp_size := get_viewport().get_visible_rect().size
+		var flipx = false
+		
 		if pos.x + label_size.x > vp_size.x:
 			pos.x = mouse.x - TEXT_OFFSET.x - label_size.x
+			flipx = true
+			
+		if flipx and pos.x < 0:
+			pos.x = mouse.x + TEXT_OFFSET.x
+			
+		pos.x = clamp(pos.x, 0.0, vp_size.x - label_size.x)
 		if pos.y + label_size.y > vp_size.y:
 			pos.y = mouse.y - TEXT_OFFSET.y - label_size.y
+
 		infoText.global_position = pos
 
 	var tile_pos = pos_to_tile_pos(mouse)

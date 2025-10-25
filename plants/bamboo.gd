@@ -5,3 +5,4 @@ extends DefenderPlant
 func _ready() -> void:
 	health = 50
 	water_usage = 50 # Replace with function body.
+	plant_stages = 1

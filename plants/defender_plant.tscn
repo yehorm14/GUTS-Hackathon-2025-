@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bg2xg15hge4ct"]
+[gd_scene load_steps=8 format=3 uid="uid://c04qbuo717w7r"]
 
 [ext_resource type="PackedScene" uid="uid://dtgj3v8s7lsbs" path="res://plants/base_plant.tscn" id="1_6kiuf"]
 [ext_resource type="Texture2D" uid="uid://2ycguaurxot8" path="res://art/plants/carrot.png" id="2_y70xe"]

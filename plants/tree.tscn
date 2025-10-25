@@ -24,4 +24,3 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_l0pgg")
 script = ExtResource("3_0whu2")
 plant_stages = 0
-grow_duration = 0
