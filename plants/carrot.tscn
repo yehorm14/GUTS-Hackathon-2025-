@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmkug5eoggtxb"]
+[gd_scene load_steps=7 format=3 uid="uid://cmkug5eoggtxb"]
 
 [ext_resource type="Texture2D" uid="uid://2ycguaurxot8" path="res://art/plants/carrot.png" id="1_p0o0d"]
+[ext_resource type="Script" uid="uid://bitkapntqhn72" path="res://plants/carrot.gd" id="2_vq8n1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vq8n1"]
 atlas = ExtResource("1_p0o0d")
@@ -35,3 +36,4 @@ animations = [{
 [node name="Carrot" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_5uiee")
 centered = false
+script = ExtResource("2_vq8n1")
