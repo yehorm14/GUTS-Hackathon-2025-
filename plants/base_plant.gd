@@ -9,7 +9,7 @@ signal plant_finished_growing(frame_ended: int)
 
 var health:int = 50
 var second_life_used:bool = false
-var water:bool = false
+var water:bool = true
 
 
 var _grow_thread: Thread
