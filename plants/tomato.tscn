@@ -49,4 +49,5 @@ func _process(delta: float) -> void:
 
 [node name="Tomato" instance=ExtResource("1_dqhe1")]
 sprite_frames = SubResource("SpriteFrames_3ydhu")
+centered = false
 script = SubResource("GDScript_s1urp")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://dccstw5avwxi4"]
+
+[ext_resource type="PackedScene" uid="uid://bg2xg15hge4ct" path="res://plants/defender_plant.tscn" id="1_1xvfr"]
+[ext_resource type="Texture2D" uid="uid://jvb4vxy7xqh8" path="res://art/plants/cactus.png" id="2_1xvfr"]
+[ext_resource type="Script" uid="uid://dwjma1u2xcaif" path="res://plants/cactus.gd" id="3_txfd0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8c6u"]
+atlas = ExtResource("2_1xvfr")
+region = Rect2(15, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xtulx"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8c6u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Cactus" instance=ExtResource("1_1xvfr")]
+sprite_frames = SubResource("SpriteFrames_xtulx")
+script = ExtResource("3_txfd0")
