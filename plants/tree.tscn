@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmoubt5egx0k1"]
+
+[ext_resource type="PackedScene" uid="uid://dtgj3v8s7lsbs" path="res://plants/base_plant.tscn" id="1_omxob"]
+[ext_resource type="Texture2D" uid="uid://dry2jfudm23iu" path="res://art/plants/tree.png" id="2_0whu2"]
+[ext_resource type="Script" uid="uid://bvy0dulrdgkvh" path="res://plants/tree.gd" id="3_0whu2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l0pgg"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0whu2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Tree" instance=ExtResource("1_omxob")]
+sprite_frames = SubResource("SpriteFrames_l0pgg")
+script = ExtResource("3_0whu2")
+plant_stages = 0
+grow_duration = 0
