@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://dte3avcg3tiu4"]
+
+[ext_resource type="PackedScene" uid="uid://c5e5tcbdmjbyt" path="res://plants/producer_plant.tscn" id="1_phewc"]
+[ext_resource type="Texture2D" uid="uid://bybmt6e8ehsbs" path="res://art/plants/corn.png" id="2_phewc"]
+[ext_resource type="Script" uid="uid://b3rb3fe8mmid4" path="res://plants/corn.gd" id="3_xb4j8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtrjy"]
+atlas = ExtResource("2_phewc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb4j8"]
+atlas = ExtResource("2_phewc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdr8b"]
+atlas = ExtResource("2_phewc")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tdr8b"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtrjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xb4j8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdr8b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="corn" instance=ExtResource("1_phewc")]
+sprite_frames = SubResource("SpriteFrames_tdr8b")
+script = ExtResource("3_xb4j8")
