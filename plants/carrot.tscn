@@ -37,3 +37,7 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_5uiee")
 centered = false
 script = ExtResource("2_vq8n1")
+item_description = "Medium water usage
+quick growth
+quick regen
+low health"

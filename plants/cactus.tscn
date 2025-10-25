@@ -23,6 +23,7 @@ animations = [{
 [node name="Cactus" instance=ExtResource("1_1xvfr")]
 sprite_frames = SubResource("SpriteFrames_xtulx")
 script = ExtResource("3_txfd0")
-plant_stages = null
-drink_timer = null
-item_description = null
+item_description = "High Health
+Low Water intake
+Stops Fire from spreading
+Outputs low amounts of water"
