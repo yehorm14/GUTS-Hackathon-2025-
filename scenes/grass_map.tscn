@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=4 uid="uid://cp7wurbcnv444"]
+[gd_scene load_steps=15 format=4 uid="uid://cp7wurbcnv444"]
 
 [ext_resource type="PackedScene" uid="uid://drlefyuivyq0b" path="res://scenes/game_state.tscn" id="1_6m4jd"]
 [ext_resource type="Texture2D" uid="uid://bcnu0erpgffjl" path="res://art/atlas.png" id="1_rpt3j"]
 [ext_resource type="Script" uid="uid://14wahc517107" path="res://scenes/game_state.gd" id="2_8jwx8"]
 [ext_resource type="Texture2D" uid="uid://du3sn8ux8ywp8" path="res://art/ui/inventory_slot.png" id="3_6m4jd"]
 [ext_resource type="Texture2D" uid="uid://b38ygb0kf5ycj" path="res://art/ui/inventory_slot_click.png" id="4_6v6ul"]
+[ext_resource type="Texture2D" uid="uid://7dl4q3ivt8be" path="res://art/ui/selector.png" id="4_xnq2p"]
+[ext_resource type="Shader" uid="uid://drh0ho6fv4jj4" path="res://shaders/outline.gdshader" id="7_cxxud"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0wfyh"]
 texture = ExtResource("1_rpt3j")
@@ -23,6 +25,21 @@ font = SubResource("SystemFont_rpt3j")
 font_size = 10
 shadow_color = Color(0, 0, 0, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1u2fh"]
+shader = ExtResource("7_cxxud")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/width = 1.0000000475
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xnq2p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xnq2p"]
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Grass" type="Node2D"]
 
 [node name="GameState" parent="." instance=ExtResource("1_6m4jd")]
@@ -34,7 +51,12 @@ tile_set = SubResource("TileSet_sugp2")
 
 [node name="Plants" type="Node2D" parent="."]
 
-[node name="UI" type="Control" parent="."]
+[node name="Cursor" type="Sprite2D" parent="."]
+position = Vector2(-32, -32)
+texture = ExtResource("4_xnq2p")
+centered = false
+
+[node name="HUD" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,7 +68,7 @@ grow_vertical = 2
 focus_behavior_recursive = 1
 mouse_filter = 1
 
-[node name="Label" type="Label" parent="UI"]
+[node name="Label" type="Label" parent="HUD"]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 4.0
@@ -56,43 +78,106 @@ text = "SCORE: 0
 TIME: 3:50"
 label_settings = SubResource("LabelSettings_rpt3j")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+[node name="InventoryUI" type="HBoxContainer" parent="HUD"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -32.0
-offset_right = 240.0
+offset_right = 383.0
 grow_vertical = 0
+mouse_filter = 0
 theme_override_constants/separation = 2
 
-[node name="0" type="TextureButton" parent="UI/HBoxContainer"]
+[node name="0" type="TextureButton" parent="HUD/InventoryUI"]
 layout_mode = 2
 texture_normal = ExtResource("3_6m4jd")
 texture_pressed = ExtResource("4_6v6ul")
 
-[node name="Icon" type="AnimatedSprite2D" parent="UI/HBoxContainer/0"]
+[node name="Icon" type="AnimatedSprite2D" parent="HUD/InventoryUI/0"]
+material = SubResource("ShaderMaterial_1u2fh")
+position = Vector2(16, 16)
+sprite_frames = SubResource("SpriteFrames_xnq2p")
 
-[node name="1" type="TextureButton" parent="UI/HBoxContainer"]
+[node name="Amount" type="Label" parent="HUD/InventoryUI/0"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 29.0
+offset_bottom = 30.0
+text = "1"
+label_settings = SubResource("LabelSettings_xnq2p")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="1" type="TextureButton" parent="HUD/InventoryUI"]
 layout_mode = 2
 texture_normal = ExtResource("3_6m4jd")
 
-[node name="Icon" type="AnimatedSprite2D" parent="UI/HBoxContainer/1"]
+[node name="Icon" type="AnimatedSprite2D" parent="HUD/InventoryUI/1"]
+position = Vector2(16, 16)
 
-[node name="2" type="TextureButton" parent="UI/HBoxContainer"]
+[node name="Amount" type="Label" parent="HUD/InventoryUI/1"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 29.0
+offset_bottom = 30.0
+text = "2"
+label_settings = SubResource("LabelSettings_xnq2p")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="2" type="TextureButton" parent="HUD/InventoryUI"]
 layout_mode = 2
 texture_normal = ExtResource("3_6m4jd")
 
-[node name="Icon" type="AnimatedSprite2D" parent="UI/HBoxContainer/2"]
+[node name="Icon" type="AnimatedSprite2D" parent="HUD/InventoryUI/2"]
+position = Vector2(16, 16)
 
-[node name="3" type="TextureButton" parent="UI/HBoxContainer"]
+[node name="Amount" type="Label" parent="HUD/InventoryUI/2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 29.0
+offset_bottom = 30.0
+text = "3"
+label_settings = SubResource("LabelSettings_xnq2p")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="3" type="TextureButton" parent="HUD/InventoryUI"]
 layout_mode = 2
 texture_normal = ExtResource("3_6m4jd")
 
-[node name="Icon" type="AnimatedSprite2D" parent="UI/HBoxContainer/3"]
+[node name="Icon" type="AnimatedSprite2D" parent="HUD/InventoryUI/3"]
+position = Vector2(16, 16)
 
-[node name="4" type="TextureButton" parent="UI/HBoxContainer"]
+[node name="Amount" type="Label" parent="HUD/InventoryUI/3"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 29.0
+offset_bottom = 30.0
+text = "4"
+label_settings = SubResource("LabelSettings_xnq2p")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="4" type="TextureButton" parent="HUD/InventoryUI"]
 layout_mode = 2
 texture_normal = ExtResource("3_6m4jd")
 
-[node name="Icon" type="AnimatedSprite2D" parent="UI/HBoxContainer/4"]
+[node name="Icon" type="AnimatedSprite2D" parent="HUD/InventoryUI/4"]
+position = Vector2(16, 16)
+
+[node name="Amount" type="Label" parent="HUD/InventoryUI/4"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 29.0
+offset_bottom = 30.0
+text = "5"
+label_settings = SubResource("LabelSettings_xnq2p")
+horizontal_alignment = 2
+vertical_alignment = 2

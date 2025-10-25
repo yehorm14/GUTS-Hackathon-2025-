@@ -6,6 +6,7 @@ signal plant_finished_growing(frame_ended: int)
 @export var plant_stages:int = 3
 @export var grow_duration:int = 15
 @export var drink_timer:int = 5
+@export var lore_description:String = ""
 
 var health:int = 50
 var second_life_used:bool = false
