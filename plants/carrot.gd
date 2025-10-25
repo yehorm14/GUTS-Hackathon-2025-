@@ -6,6 +6,7 @@ func on_plant_ready():
 	grow_duration = 8
 	health = 20
 	regen = 4
+	harvest = 2
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

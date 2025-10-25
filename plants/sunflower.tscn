@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://yjjsobxtybot"]
 
-[ext_resource type="PackedScene" uid="uid://bk4r3b6bwsm7o" path="res://plants/producer_plant.tscn" id="1_1v8gv"]
-[ext_resource type="Texture2D" uid="uid://bcjxp8tj5k7re" path="res://art/plants/suflower.png" id="2_1v8gv"]
+[ext_resource type="PackedScene" uid="uid://c5e5tcbdmjbyt" path="res://plants/producer_plant.tscn" id="1_1v8gv"]
+[ext_resource type="Texture2D" uid="uid://dtn4s6og6m3dc" path="res://art/plants/suflower.png" id="2_1v8gv"]
 [ext_resource type="Script" uid="uid://ca7qkr8hxvha6" path="res://plants/sunflower.gd" id="3_8fgmt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fq7h7"]
@@ -37,3 +37,8 @@ animations = [{
 [node name="Sunflower" instance=ExtResource("1_1v8gv")]
 sprite_frames = SubResource("SpriteFrames_4ipjm")
 script = ExtResource("3_8fgmt")
+item_description = "Really high water intake 
+Long growtime 
+Fast regeneration
+Medium health
+Really high harvest"
