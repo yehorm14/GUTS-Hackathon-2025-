@@ -1,4 +1,4 @@
-extends Plant
+extends DefenderPlant
 
 
 func on_plant_ready():

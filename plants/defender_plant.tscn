@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://bg2xg15hge4ct"]
+
+[ext_resource type="PackedScene" uid="uid://c4ww7gy65glav" path="res://plants/base_plant.tscn" id="1_6kiuf"]
+[ext_resource type="Texture2D" uid="uid://2ycguaurxot8" path="res://art/plants/carrot.png" id="2_y70xe"]
+[ext_resource type="Script" uid="uid://bbv1gttv1mfyf" path="res://plants/defender_plant.gd" id="3_yyn4e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq8n1"]
+atlas = ExtResource("2_y70xe")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnj43"]
+atlas = ExtResource("2_y70xe")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsp8d"]
+atlas = ExtResource("2_y70xe")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kcnd1"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vq8n1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnj43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsp8d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="DefenderPlant" instance=ExtResource("1_6kiuf")]
+sprite_frames = SubResource("SpriteFrames_kcnd1")
+script = ExtResource("3_yyn4e")
