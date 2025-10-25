@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://diuj8l25pj6eu"]
 
-[ext_resource type="PackedScene" uid="uid://c5e5tcbdmjbyt" path="res://plants/producer_plant.tscn" id="1_mq7ns"]
+[ext_resource type="PackedScene" uid="uid://bk4r3b6bwsm7o" path="res://plants/producer_plant.tscn" id="1_mq7ns"]
 [ext_resource type="Texture2D" uid="uid://cnr5jjdsxd4go" path="res://art/plants/potato.png" id="2_cju6u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qj8ys"]
