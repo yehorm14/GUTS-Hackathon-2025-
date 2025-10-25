@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://2lsaclpbt0f0"]
+
+[ext_resource type="PackedScene" uid="uid://bg2xg15hge4ct" path="res://plants/defender_plant.tscn" id="1_soqi5"]
+[ext_resource type="Texture2D" uid="uid://c2rom82vcy6d0" path="res://art/plants/sakura.png" id="2_rff5e"]
+[ext_resource type="Script" uid="uid://bdg7hfg2iug6v" path="res://plants/sakura.gd" id="3_mrvl6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jidtx"]
+atlas = ExtResource("2_rff5e")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ur5q1"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jidtx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Sakura" instance=ExtResource("1_soqi5")]
+sprite_frames = SubResource("SpriteFrames_ur5q1")
+script = ExtResource("3_mrvl6")
