@@ -1,7 +1,6 @@
 extends AnimatedSprite2D
 class_name Plant
 
-
 @export var plant_stages:int = 3
 @export var drink_timer:int = 5
 @export_multiline var item_description : String

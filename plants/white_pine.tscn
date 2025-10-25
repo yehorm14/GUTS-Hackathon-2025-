@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0da1q27anwn"]
+
+[ext_resource type="PackedScene" uid="uid://c04qbuo717w7r" path="res://plants/defender_plant.tscn" id="1_51hku"]
+[ext_resource type="Texture2D" uid="uid://ppx4oaevd166" path="res://art/plants/pine.png" id="2_51hku"]
+[ext_resource type="Script" uid="uid://caq4rq8tmp8i5" path="res://plants/white_pine.gd" id="3_p4xtv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p4xtv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_51hku")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="WhitePine" instance=ExtResource("1_51hku")]
+sprite_frames = SubResource("SpriteFrames_p4xtv")
+script = ExtResource("3_p4xtv")

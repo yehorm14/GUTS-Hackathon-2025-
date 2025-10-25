@@ -5,6 +5,7 @@ uniform float width : hint_range(0, 10) = 1.0;
 uniform int pattern : hint_range(0, 2) = 0; // diamond, circle, square
 uniform bool inside = false;
 uniform bool add_margins = true; // only useful when inside is false
+uniform bool grayscale = false;
 
 void vertex() {
 	if (add_margins) {
@@ -58,5 +59,11 @@ void fragment() {
 	if ((COLOR.a > 0.0) == inside && hasContraryNeighbour(uv, TEXTURE_PIXEL_SIZE, TEXTURE)) {
 		COLOR.rgb = inside ? mix(COLOR.rgb, color.rgb, color.a) : color.rgb;
 		COLOR.a += (1.0 - COLOR.a) * color.a;
+	}
+	
+	if (grayscale) {
+		float gray = dot(COLOR.rgb, vec3(0.3, 0.6, 0.1));
+		COLOR.rgb = vec3(gray);
+		COLOR.a *= 0.5;
 	}
 }
