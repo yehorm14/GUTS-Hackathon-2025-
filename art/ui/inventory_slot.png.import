@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu7ond6e2w4jd"
-path="res://.godot/imported/potato.png-ecf21cdf780cc52d2156a9cdae8dee91.ctex"
+uid="uid://du3sn8ux8ywp8"
+path="res://.godot/imported/inventory_slot.png-c71de5925721305aae9912c24456d904.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/potato.png"
-dest_files=["res://.godot/imported/potato.png-ecf21cdf780cc52d2156a9cdae8dee91.ctex"]
+source_file="res://art/ui/inventory_slot.png"
+dest_files=["res://.godot/imported/inventory_slot.png-c71de5925721305aae9912c24456d904.ctex"]
 
 [params]
 

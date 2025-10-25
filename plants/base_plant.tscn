@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4ww7gy65glav"]
+[gd_scene load_steps=7 format=3 uid="uid://dtgj3v8s7lsbs"]
 
 [ext_resource type="Texture2D" uid="uid://2ycguaurxot8" path="res://art/plants/carrot.png" id="1_bfn2x"]
 [ext_resource type="Script" uid="uid://q4k5qhsdsvj7" path="res://plants/base_plant.gd" id="1_fcrfm"]
@@ -35,5 +35,6 @@ animations = [{
 
 [node name="BasePlant" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_u3brp")
+centered = false
 script = ExtResource("1_fcrfm")
 grow_duration = 2

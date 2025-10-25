@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://cva5ajycphy27"]
+
+[ext_resource type="Script" uid="uid://dr2rg3vmk54gd" path="res://scenes/tutorial.gd" id="1_c13y7"]
+
+[sub_resource type="SystemFont" id="SystemFont_natt5"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_5mbse"]
+font = SubResource("SystemFont_natt5")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_natt5"]
+font = SubResource("SystemFont_natt5")
+font_size = 12
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_behavior_recursive = 1
+script = ExtResource("1_c13y7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.18039216, 0.49803922, 0.15294118, 1)
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 18.0
+offset_right = 168.0
+offset_bottom = 41.0
+text = "how to play"
+label_settings = SubResource("LabelSettings_5mbse")
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 58.0
+offset_right = 361.0
+offset_bottom = 270.0
+text = "to play"
+label_settings = SubResource("LabelSettings_natt5")
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 243.0
+offset_right = 75.0
+offset_bottom = 274.0
+text = "Back"

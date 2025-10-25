@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://diuj8l25pj6eu"]
+
+[ext_resource type="PackedScene" uid="uid://bk4r3b6bwsm7o" path="res://plants/producer_plant.tscn" id="1_mq7ns"]
+[ext_resource type="Texture2D" uid="uid://cnr5jjdsxd4go" path="res://art/plants/potato.png" id="2_cju6u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj8ys"]
+atlas = ExtResource("2_cju6u")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbk0f"]
+atlas = ExtResource("2_cju6u")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gxhf"]
+atlas = ExtResource("2_cju6u")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cju6u"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj8ys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbk0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gxhf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_qj8ys"]
+script/source = "extends ProducerPlant
+
+
+# Called when the node enters the scene tree for the first time.
+func on_plant_ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Potato" instance=ExtResource("1_mq7ns")]
+sprite_frames = SubResource("SpriteFrames_cju6u")
+script = SubResource("GDScript_qj8ys")
