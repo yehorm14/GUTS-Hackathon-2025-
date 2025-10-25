@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b6d3fjhmme5jd"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(936, 752)
+metadata/_edit_group_ = true
