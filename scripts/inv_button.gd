@@ -29,6 +29,6 @@ func set_button(b: TextureButton, seed_callable: Callable) -> void:
 	amount = 0
 	
 	button.pressed.connect(func():
-		seed_callable.call(seed)
+		seed_callable.call(seed, int(b.name))
 	)
 	
