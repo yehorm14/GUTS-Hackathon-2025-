@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnr5jjdsxd4go"
-path="res://.godot/imported/potato.png-f53eefc9ce28b0211ff82d195b2a70ae.ctex"
+uid="uid://bcjxp8tj5k7re"
+path="res://.godot/imported/suflower.png-dcce998ad72d8f804bfe10c841167c44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://potato.png"
-dest_files=["res://.godot/imported/potato.png-f53eefc9ce28b0211ff82d195b2a70ae.ctex"]
+source_file="res://art/plants/suflower.png"
+dest_files=["res://.godot/imported/suflower.png-dcce998ad72d8f804bfe10c841167c44.ctex"]
 
 [params]
 
