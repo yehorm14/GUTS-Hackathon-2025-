@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bg2xg15hge4ct"]
+[gd_scene load_steps=8 format=3 uid="uid://c04qbuo717w7r"]
 
-[ext_resource type="PackedScene" uid="uid://c4ww7gy65glav" path="res://plants/base_plant.tscn" id="1_6kiuf"]
+[ext_resource type="PackedScene" uid="uid://dtgj3v8s7lsbs" path="res://plants/base_plant.tscn" id="1_6kiuf"]
 [ext_resource type="Texture2D" uid="uid://2ycguaurxot8" path="res://art/plants/carrot.png" id="2_y70xe"]
-[ext_resource type="Script" uid="uid://bbv1gttv1mfyf" path="res://plants/defender_plant.gd" id="3_yyn4e"]
+[ext_resource type="Script" path="res://plants/defender_plant.gd" id="3_yyn4e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vq8n1"]
 atlas = ExtResource("2_y70xe")
@@ -36,4 +36,5 @@ animations = [{
 
 [node name="DefenderPlant" instance=ExtResource("1_6kiuf")]
 sprite_frames = SubResource("SpriteFrames_kcnd1")
+centered = false
 script = ExtResource("3_yyn4e")

@@ -34,3 +34,4 @@ animations = [{
 
 [node name="Carrot" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_5uiee")
+centered = false
