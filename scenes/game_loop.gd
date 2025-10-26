@@ -24,7 +24,7 @@ signal game_over(won: bool)
 
 @export var game_duration_seconds = 300
 @export var seed_interval = 10.0
-@export var event_interval = 15.0
+@export var event_interval = 30.0
 
 @export var event_no = 0
 

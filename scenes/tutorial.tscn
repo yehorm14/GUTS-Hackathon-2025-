@@ -59,8 +59,8 @@ text = "Get score in the form of harvest seasons which happen every
 somewhere in the map, but be weary! Every 30 seconds there's
 a natural disaster that randomly occurs which can range from
 mundane to devastating. You lose when all of your plants die.
-There are plants that give you +Harvest, and those who's sole job
-is to be your plant's bodyguards. Good luck :)
+There are plants that give you +Harvest (producers), and those who's sole job
+is to be your plant's bodyguards (defenders). Good luck :)
  ESC TO CANCEL PLANT PLACEMENT
  MOUSE1 TO CLICK PLANT & HOVER OVER THEM FOR MORE INFO"
 label_settings = SubResource("LabelSettings_natt5")
