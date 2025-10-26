@@ -4,7 +4,7 @@ extends ProducerPlant
 func on_plant_ready():
 	water_usage = 50 
 	grow_duration = 8
-	health = 50
+	health = 25
 	regen = 2
 	harvest = 2
 	plant_stages = 3

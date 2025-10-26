@@ -2,7 +2,7 @@ extends Area2D
 class_name Tornado
 
 @export var speed: float = 120.0
-@export var damage: int = 8
+@export var damage: int = 20
 @export var lifetime: float = 6.0
 @export var dir: Vector2 = Vector2.RIGHT
 @export var spawn_interval: float = 0.2

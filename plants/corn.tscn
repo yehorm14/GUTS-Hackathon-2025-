@@ -37,5 +37,6 @@ animations = [{
 [node name="Corn" instance=ExtResource("1_phewc")]
 sprite_frames = SubResource("SpriteFrames_tdr8b")
 script = ExtResource("3_xb4j8")
+health = 25
 item_description = "Health = 20, Water Usage = 70, Growth Duration = 8s, Regeneration= 1hp, Harvest (points) = 4
 Very weak crop with a medium growth time and a medium water intake. High harvest return."

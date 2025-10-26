@@ -25,5 +25,5 @@ editor_description = "High Health
 "
 sprite_frames = SubResource("SpriteFrames_xtulx")
 script = ExtResource("3_txfd0")
-item_description = "Health = 300, Water Usage = 20
+item_description = "Health = 200, Water Usage = 20
 A shield that requires very little water to keep up."

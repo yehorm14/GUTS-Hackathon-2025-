@@ -26,6 +26,8 @@ signal game_over(won: bool)
 @export var seed_interval = 10.0
 @export var event_interval = 15.0
 
+@export var event_no = 0
+
 var _game_started = false
 var _time_left = 0.0
 var _seed_accum = 0.0
@@ -73,6 +75,7 @@ func _process(delta):
 			_seed_accum -= seed_interval
 			_give_random_seed()
 
+		event_interval = 15.0 * 0.97**(event_no)
 		_event_accum += delta
 		if _event_accum >= event_interval:
 			_event_accum -= event_interval
@@ -128,10 +131,14 @@ func _sakura_trees_count():
 			sakura_trees += 1
 	return sakura_trees
 
+var timer = 0
+
 func _fire_random_event():
 	var namae = GAME_EVENTS[_rng.randi_range(0, GAME_EVENTS.size() - 1)]
 	event_name.text = "EVENT: %s" % namae.to_upper()
-	await get_tree().create_timer(3.0).timeout
+	event_no += 1.0
+	timer = 3.0/(1.1**event_no)
+	await get_tree().create_timer(timer).timeout
 	event_name.text = ""
 	match namae:
 		"flooding":
@@ -338,7 +345,7 @@ func _on_event_storm():
 		var g = SCN_GUST.instantiate()
 		g.dir = dir
 		g.speed = _rng.randf_range(140.0, 220.0)
-		g.damage = dmg
+		g.damage = dmg*(1.1**(event_no))
 		g.lifetime = 4.0
 		var y = _rng.randi_range(y_margin, int(vp.y) - y_margin)
 		g.position = Vector2(start_x, float(y))

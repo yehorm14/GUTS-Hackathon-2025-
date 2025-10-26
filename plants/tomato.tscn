@@ -37,5 +37,6 @@ animations = [{
 [node name="Tomato" instance=ExtResource("1_dqhe1")]
 sprite_frames = SubResource("SpriteFrames_3ydhu")
 script = ExtResource("3_xbxrs")
+health = 25
 item_description = "Health = 30, Water Usage = 70, Growth Duration = 6s, Harvest (points) = 3
 A medium strength crop with a short growth time and a fairly average water intake. Medium harvest return."
