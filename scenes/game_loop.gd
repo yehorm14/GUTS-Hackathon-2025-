@@ -23,7 +23,7 @@ signal game_over(won: bool)
 @onready var SCN_VOLCANO_PROJ = preload("res://entities/volcano_projectile.tscn")
 
 @export var game_duration_seconds = 300
-@export var seed_interval = 10.0
+@export var seed_interval = 5.0
 @export var event_interval = 30.0
 
 @export var event_no = 0
@@ -70,12 +70,12 @@ func _process(delta):
 		_time_left = max(0.0, _time_left - delta)
 		_update_score_stuff()
 
-		_seed_accum += delta * 2.0
+		_seed_accum += delta
 		if _seed_accum >= seed_interval:
 			_seed_accum -= seed_interval
 			_give_random_seed()
 
-		event_interval = 15.0 * 0.97**(event_no)
+		event_interval = 30.0 * 0.97**(event_no)
 		_event_accum += delta
 		if _event_accum >= event_interval:
 			_event_accum -= event_interval
