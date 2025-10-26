@@ -23,3 +23,5 @@ animations = [{
 [node name="Bamboo" instance=ExtResource("1_8cqac")]
 sprite_frames = SubResource("SpriteFrames_ci32o")
 script = ExtResource("3_61ve3")
+item_description = "Health = 10, Water Usage = 50,
+Weak but plentiful. Produces an extra bamboo seed."

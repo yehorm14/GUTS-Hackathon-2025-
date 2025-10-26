@@ -37,4 +37,5 @@ animations = [{
 [node name="Potato" instance=ExtResource("1_mq7ns")]
 sprite_frames = SubResource("SpriteFrames_cju6u")
 script = ExtResource("3_qj8ys")
-grow_duration = 15
+item_description = "Health = 100, Water Usage = 70, Growth Duration = 10s, Regeneration= 5hp, Harvest (points) = 1
+A weak crop with a long growth time and a fairly average water intake. Very low harvest return "

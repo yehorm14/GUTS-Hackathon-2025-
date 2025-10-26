@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxiulubrehuxc"]
+
+[ext_resource type="Texture2D" uid="uid://dq2lc0wbqb85x" path="res://art/effects/raining.png" id="1_1pb2j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hior3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1pb2j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svpx0"]
+size = Vector2(6, 10)
+
+[node name="Rain" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-8, -8)
+sprite_frames = SubResource("SpriteFrames_hior3")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_svpx0")

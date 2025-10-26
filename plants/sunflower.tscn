@@ -37,7 +37,5 @@ animations = [{
 [node name="Sunflower" instance=ExtResource("1_1v8gv")]
 sprite_frames = SubResource("SpriteFrames_4ipjm")
 script = ExtResource("3_8fgmt")
-grow_duration = 15
-item_description = "Health = 25, Water Usage = 120, Growth Duration = 10s, Regeneration = 5hp, Harvest (points) = 5
-A medium strength crop with long growth time and really high water intake. Very high harvest return. 
-"
+item_description = "Health = 25, Water Usage = 120, Growth Duration = 10s, Harvest (points) = 1
+A medium strength crop with long growth time and really high water intake. Very high harvest return. "

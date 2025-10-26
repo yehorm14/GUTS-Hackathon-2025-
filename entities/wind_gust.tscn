@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnrnb6c7mql8p"]
+
+[ext_resource type="Script" uid="uid://dcd3ebu4lt8tl" path="res://entities/wind_gust.gd" id="1_4me5x"]
+[ext_resource type="Texture2D" uid="uid://cu6uhrfrfqfid" path="res://art/effects/wind_torn.png" id="2_qljpn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mvgbk"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbodo"]
+atlas = ExtResource("2_qljpn")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6673"]
+atlas = ExtResource("2_qljpn")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwhbx"]
+atlas = ExtResource("2_qljpn")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w1cin"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbodo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6673")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwhbx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="WindGust" type="Area2D"]
+script = ExtResource("1_4me5x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mvgbk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_w1cin")
+frame = 1

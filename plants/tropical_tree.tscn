@@ -23,3 +23,5 @@ animations = [{
 [node name="Tropical Tree" instance=ExtResource("1_dndc8")]
 sprite_frames = SubResource("SpriteFrames_yveus")
 script = ExtResource("3_snfrp")
+item_description = "Health = 200, Water Usage = 200 
+Higher range of shielding but reduced health"

@@ -1,13 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvskgsyyg3vmj"]
+[gd_scene load_steps=3 format=3 uid="uid://dvskgsyyg3vmj"]
 
 [ext_resource type="Texture2D" uid="uid://b77iqutaqry23" path="res://art/mainmenu.png" id="1_5mbse"]
 [ext_resource type="Script" uid="uid://jq32buist6h8" path="res://scenes/mainmenu.gd" id="1_natt5"]
-
-[sub_resource type="SystemFont" id="SystemFont_natt5"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_r3g3c"]
-font = SubResource("SystemFont_natt5")
-font_size = 14
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -28,24 +22,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_5mbse")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 41.0
-offset_top = 130.0
-offset_right = 148.0
-offset_bottom = 153.0
-text = "select a mode"
-label_settings = SubResource("LabelSettings_r3g3c")
-
-[node name="Label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 219.0
-offset_top = 130.0
-offset_right = 370.0
-offset_bottom = 153.0
-text = "how to play"
-label_settings = SubResource("LabelSettings_r3g3c")
-
 [node name="Play" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -56,24 +32,16 @@ grow_vertical = 2
 
 [node name="tutorial" type="Button" parent="Play"]
 layout_mode = 0
-offset_left = 223.0
-offset_top = 157.0
-offset_right = 347.0
-offset_bottom = 188.0
-text = "click here"
+offset_left = 38.0
+offset_top = 190.0
+offset_right = 143.0
+offset_bottom = 221.0
+text = "how to play?"
 
 [node name="grass_map" type="Button" parent="Play"]
 layout_mode = 0
 offset_left = 40.0
-offset_top = 160.0
+offset_top = 151.0
 offset_right = 99.0
-offset_bottom = 191.0
-text = "GRASS"
-
-[node name="desert_map" type="Button" parent="Play"]
-layout_mode = 0
-offset_left = 112.0
-offset_top = 159.0
-offset_right = 178.0
-offset_bottom = 190.0
-text = "DESERT"
+offset_bottom = 182.0
+text = "PLAY!"

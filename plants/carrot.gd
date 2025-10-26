@@ -8,3 +8,4 @@ func on_plant_ready():
 	regen = 2
 	harvest = 2
 	plant_stages = 3
+	water_range = 2

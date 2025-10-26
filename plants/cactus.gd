@@ -5,3 +5,4 @@ func on_plant_ready():
 	health = 300
 	water_usage = 20
 	plant_stages = 1
+	water_range = 5

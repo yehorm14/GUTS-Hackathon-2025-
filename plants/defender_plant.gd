@@ -1,6 +1,8 @@
 extends Plant
 class_name DefenderPlant
 
+var is_sakura_plant: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func on_plant_ready():
 	pass # Replace with function body.

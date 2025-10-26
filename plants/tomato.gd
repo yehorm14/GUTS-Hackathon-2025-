@@ -9,3 +9,4 @@ func on_plant_ready():
 	regen = 3
 	water_usage = 70# Replace with function body.
 	plant_stages = 3
+	water_range = 2
