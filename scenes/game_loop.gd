@@ -24,7 +24,7 @@ signal game_over(won: bool)
 
 @export var game_duration_seconds = 300
 @export var seed_interval = 5.0
-@export var event_interval = 30.0
+@export var event_interval = 20.0
 
 @export var event_no = 0
 
@@ -75,7 +75,7 @@ func _process(delta):
 			_seed_accum -= seed_interval
 			_give_random_seed()
 
-		event_interval = 30.0 * 0.97**(event_no)
+		event_interval = 20.0 * 0.95**(event_no)
 		_event_accum += delta
 		if _event_accum >= event_interval:
 			_event_accum -= event_interval
@@ -134,10 +134,21 @@ func _sakura_trees_count():
 var timer = 0
 
 func _fire_random_event():
-	var namae = GAME_EVENTS[_rng.randi_range(0, GAME_EVENTS.size() - 1)]
+	var weightings = randi_range(0,100)
+	var namae = ""
+	if weightings < 35:
+		namae = GAME_EVENTS[1] # flooding
+	elif 35 <= weightings and weightings < 60:
+		namae = GAME_EVENTS[2]
+	elif 60 <= weightings and weightings < 85:
+		namae = GAME_EVENTS[4]
+	elif 85 <= weightings and weightings < 93:
+		namae = GAME_EVENTS[0]
+	elif 93 <= weightings:
+		namae = GAME_EVENTS[3]
 	event_name.text = "EVENT: %s" % namae.to_upper()
 	event_no += 1.0
-	timer = 3.0/(1.1**event_no)
+	timer = 3.0
 	await get_tree().create_timer(timer).timeout
 	event_name.text = ""
 	match namae:

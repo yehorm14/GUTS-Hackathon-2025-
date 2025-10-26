@@ -56,14 +56,14 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Get score in the form of harvest seasons which happen every
 10 seconds. Every harvest grants you 1 random seed to plant 
-somewhere in the map, but be weary! Every 30 seconds there's
+somewhere in the map, but be weary! Every 20 seconds there's
 a natural disaster that randomly occurs which can range from
 mundane to devastating. You lose when all of your plants die.
-There are plants that give you more Harvest (producers), and those who's sole job
-is to be your plant's bodyguards (defenders). Good luck :)
+There are plants that give you more Harvest (producers), and those who's sole job is to be your plant's bodyguards (defenders). Good luck :)
  ESC TO CANCEL PLANT PLACEMENT
  MOUSE1 TO CLICK PLANT & HOVER OVER THEM FOR MORE INFO"
 label_settings = SubResource("LabelSettings_natt5")
+autowrap_mode = 3
 
 [node name="Back" type="Button" parent="."]
 layout_mode = 0
