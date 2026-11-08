@@ -1,3 +1,15 @@
-# Godot 4+ specific ignores
+# Godot
 .godot/
+.import/
+*.translation
+export_credentials.cfg
+*.tmp
+
+# Export output
+build/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
 /android/
