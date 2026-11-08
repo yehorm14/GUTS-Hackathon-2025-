@@ -22,16 +22,16 @@ var amount: int = 0 :
 		var old_amount = amount
 		amount = value
 		
-		if amount != old_amount:
+		if button and amount != old_amount:
 			var added_label: Label = button.get_node("Added").duplicate()
 			added_label.label_settings = added_label.label_settings.duplicate()
 			added_label.visible = true
 			button.add_child(added_label)
 			if amount > old_amount:
-				added_label.text = "+" + str(amount)
+				added_label.text = "+" + str(amount - old_amount)
 				added_label.label_settings.font_color = Color(1.0, 1, 0.0, 1.0)
 			else:
-				added_label.text = "-" + str(amount)
+				added_label.text = "-" + str(old_amount - amount)
 				added_label.label_settings.font_color = Color(1.0, 0.0, 0.0, 1.0)
 			
 			var tween = button.create_tween()

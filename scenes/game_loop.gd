@@ -293,7 +293,7 @@ func _on_event_flooding():
 		await get_tree().create_timer(_rng.randf_range(0.02, 0.1)).timeout
 
 func _tile_center(layer: TileMapLayer, tile: Vector2i) -> Vector2:
-	return layer.to_global(layer.map_to_local(tile)) + Vector2(8, 8)
+	return layer.to_global(layer.map_to_local(tile))
 
 func _tile_has_plant(tile: Vector2i) -> Plant:
 	for c in plants.get_children():

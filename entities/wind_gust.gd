@@ -32,7 +32,8 @@ func _on_area_entered(a):
 	if not a: return
 	var p = a.get_parent()
 	if p is Plant:
-		p.health -= damage
-		damage -= damage
+		var dealt = min(damage, p.health)
+		p.health -= dealt
+		damage -= dealt
 		if damage <= 0:
 			queue_free()
