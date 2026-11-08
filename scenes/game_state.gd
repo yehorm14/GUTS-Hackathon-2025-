@@ -149,6 +149,13 @@ func _ready() -> void:
 	youScored.text = "YOU " + ("WON" if won else "LOST") + "!\nSCORE: " + str(gameLoop.score)
 	
 	
+func _spawn_preview(seed: Plant) -> void:
+	selected = seed.duplicate()
+	selected.process_mode = Node.PROCESS_MODE_DISABLED
+	selected.frame = 0
+	get_parent().add_child(selected)
+	get_parent().move_child(selected, -5)
+
 func seed_selected(seed: Plant, slotId: int):
 	if placeToStart:
 		var tw := create_tween()
@@ -168,11 +175,7 @@ func seed_selected(seed: Plant, slotId: int):
 		return
 		
 	selected_slot = slotId
-	selected = seed.duplicate()
-	selected.process_mode = Node.PROCESS_MODE_DISABLED
-	selected.frame = 0
-	get_parent().add_child(selected)
-	get_parent().move_child(selected, -5)
+	_spawn_preview(seed)
 	
 func pos_to_tile_pos(world_pos: Vector2, layer: TileMapLayer = bgLayer) -> Vector2i:
 	var local = layer.to_local(world_pos)
@@ -204,17 +207,21 @@ func can_place_at(tile_pos: Vector2):
 		
 	return false
 	
-func _scan_nearby_water_count(tile_pos: Vector2i, water_range) -> int:
+# Shared by plants and the placement hint. The ActiveLayer tile (water, rock)
+# overrides the BackgroundLayer tile (grass, craters) when both are present.
+func scan_nearby_water(tile_pos: Vector2i, water_range: int) -> int:
 	var count := 0
 	for dy in range(-water_range, water_range + 1):
 		for dx in range(-water_range, water_range + 1):
 			var p := tile_pos + Vector2i(dx, dy)
-			var coords := activeLayer.get_cell_atlas_coords(p)
+			var coords := bgLayer.get_cell_atlas_coords(p)
+			if activeLayer.get_cell_source_id(p) != -1:
+				coords = activeLayer.get_cell_atlas_coords(p)
 			var tile_info = TILE_DATA.get(coords)
 			if tile_info:
-				count += int(tile_info.Water / water_range) 
+				count += int(tile_info.Water)
 	return count
-	
+
 func _heal_craters_tick():
 	var vp = get_viewport().get_visible_rect().size
 	var tw = int(vp.x / 16)
@@ -350,7 +357,7 @@ func _process(delta: float) -> void:
 		if can_place_at(tile_pos):
 			var is_defense = selected is DefenderPlant
 			var t := pos_to_tile_pos(mouse, activeLayer)
-			var water := _scan_nearby_water_count(t, selected.water_range)
+			var water := scan_nearby_water(t, selected.water_range)
 			var usage = max(1, selected.water_usage)
 			var abundance = float(water) / float(usage)
 
@@ -397,7 +404,6 @@ func _process(delta: float) -> void:
 		
 		if mouse_down:
 			if selected and can_place_at(tile_pos):
-				var pre_clone_selected = selected.duplicate()
 				selected.reparent(plants)
 				
 				var SHADER_MATERIAL = ShaderMaterial.new()
@@ -426,11 +432,7 @@ func _process(delta: float) -> void:
 				selected = null
 				
 				if slot.amount > 0:
-					selected = pre_clone_selected.duplicate()
-					selected.process_mode = Node.PROCESS_MODE_DISABLED
-					selected.frame = 0
-					get_parent().add_child(selected)
-					get_parent().move_child(selected, -3)
+					_spawn_preview(slot.seed)
 	else:
 		cursor.position = Vector2(-32, -32) 
 				

@@ -20,6 +20,7 @@ var max_health: int
 var nearby_water_perc: int = 0
 var is_fully_grown: bool = true
 var _active_time: float = 0.0
+var _heal_fraction: float = 0.0
 var _time_until_next_water_drink: float = 0.0
 
 var water:bool = true
@@ -81,20 +82,14 @@ func _on_drink_tick() -> void:
 	on_drink_water()
 	
 	var perc = float(nearby_water_perc) / float(water_usage)
-	if perc > 0.5:
-		perc *= 0.3
-		health = min(health + perc, max_health)
-	
+	if perc >= 1.0:
+		# health is an int, so keep the fractional part until it adds up
+		_heal_fraction += perc * 0.3
+		var whole := int(_heal_fraction)
+		_heal_fraction -= whole
+		if whole > 0:
+			health = min(health + whole, max_health)
 
 func _scan_nearby_water_count() -> int:
 	var tile_pos := _active_layer.local_to_map(_active_layer.to_local(global_position))
-	var count := 0
-	for dy in range(-water_range, water_range + 1):
-		for dx in range(-water_range, water_range + 1):
-			var p := tile_pos + Vector2i(dx, dy)
-			var atlas := _active_layer.get_cell_atlas_coords(p)
-			var info = TILE_DATA.get(atlas)
-			if info:
-				count += info.Water
-	
-	return count
+	return game_state.scan_nearby_water(tile_pos, water_range)
