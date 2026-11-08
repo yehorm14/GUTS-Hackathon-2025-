@@ -37,4 +37,3 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_u3brp")
 centered = false
 script = ExtResource("1_fcrfm")
-grow_duration = 2

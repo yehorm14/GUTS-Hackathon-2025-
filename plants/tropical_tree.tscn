@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://or3jicvyhdj"]
 
-[ext_resource type="PackedScene" uid="uid://bg2xg15hge4ct" path="res://plants/defender_plant.tscn" id="1_dndc8"]
-[ext_resource type="Texture2D" uid="uid://ddkttii0sx4eg" path="res://art/plants/tropical.png" id="2_dndc8"]
+[ext_resource type="PackedScene" uid="uid://c04qbuo717w7r" path="res://plants/defender_plant.tscn" id="1_dndc8"]
+[ext_resource type="Texture2D" uid="uid://d2d2bn7xiu5t1" path="res://art/plants/tropical.png" id="2_dndc8"]
 [ext_resource type="Script" uid="uid://b3pya3ler4t2e" path="res://plants/tropical_tree.gd" id="3_snfrp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m8li0"]
@@ -20,6 +20,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="TropicalTree" instance=ExtResource("1_dndc8")]
+[node name="Tropical Tree" instance=ExtResource("1_dndc8")]
 sprite_frames = SubResource("SpriteFrames_yveus")
 script = ExtResource("3_snfrp")
+item_description = "Health = 200, Water Usage = 200 
+Higher range of shielding but reduced health"

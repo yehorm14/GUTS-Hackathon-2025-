@@ -2,11 +2,9 @@ extends ProducerPlant
 
 
 func on_plant_ready():
-	grow_duration = 10
+	grow_duration = 6
 	water_usage = 120
-	regen = 5
-	health = 25
-	harvest = 5
-
-func _process(delta: float) -> void:
-	pass
+	health = 15
+	harvest = 1
+	plant_stages = 3
+	water_range = 2

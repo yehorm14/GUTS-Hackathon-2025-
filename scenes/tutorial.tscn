@@ -42,13 +42,28 @@ text = "how to play"
 label_settings = SubResource("LabelSettings_5mbse")
 
 [node name="Label3" type="Label" parent="."]
-layout_mode = 0
-offset_left = 14.0
-offset_top = 58.0
-offset_right = 361.0
-offset_bottom = 270.0
-text = "to play"
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -84.0
+offset_right = 190.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Get score in the form of harvest seasons which happen every
+10 seconds. Every harvest grants you 1 random seed to plant 
+somewhere in the map, but be weary! Every 20 seconds there's
+a natural disaster that randomly occurs which can range from
+mundane to devastating. You lose when all of your plants die.
+There are plants that give you more Harvest (producers), and those who's sole job is to be your plant's bodyguards (defenders). Good luck :)
+ ESC TO CANCEL PLANT PLACEMENT
+ MOUSE1 TO CLICK PLANT & HOVER OVER THEM FOR MORE INFO"
 label_settings = SubResource("LabelSettings_natt5")
+autowrap_mode = 3
 
 [node name="Back" type="Button" parent="."]
 layout_mode = 0

@@ -15,6 +15,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="WhitePine" instance=ExtResource("1_51hku")]
+[node name="White Pine" instance=ExtResource("1_51hku")]
 sprite_frames = SubResource("SpriteFrames_p4xtv")
 script = ExtResource("3_p4xtv")
+item_description = "Health = 150, Water Usage = 100
+Shields plants around it"

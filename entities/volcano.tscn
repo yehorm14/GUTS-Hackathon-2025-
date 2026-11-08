@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce37pj6is2pj7"]
+
+[ext_resource type="Texture2D" uid="uid://bb0hbv2l1f0ax" path="res://art/effects/non_er_volcano.png" id="1_ngqwn"]
+[ext_resource type="Texture2D" uid="uid://dhmsye10ti4tt" path="res://art/effects/volcano.png" id="2_yaq2d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wgfro"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ngqwn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_yaq2d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b81gu"]
+size = Vector2(64, 64)
+
+[node name="Volcano" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_wgfro")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_b81gu")

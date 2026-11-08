@@ -1,9 +1,8 @@
 extends DefenderPlant
 
-
 func on_plant_ready():
-		pass # Replace with function body.
-
-
-func _process(delta: float) -> void:
-	pass
+	health = 100
+	water_usage = 150
+	plant_stages = 1
+	water_range = 3
+	is_sakura_plant = true
