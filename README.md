@@ -4,8 +4,6 @@ A 2D strategy game for the browser or desktop: plant crops and defenders on a sm
 
 ![Main menu and a game in progress](docs/images/gameplay.png)
 
-**Live demo:** coming soon
-
 ## Why it is useful
 
 - It is a finished, playable Godot 4 project built in one weekend, with the full game loop (menu, play, win or lose).
@@ -65,7 +63,7 @@ There are no automated tests. The CI workflow checks that the project imports an
 
 ## Team and my role
 
-Built at the GUTS hackathon (October 2025) by a team of four plus me:
+Built at the GUTS hackathon (October 2025) by a team of four:
 
 - [Aunarky](https://github.com/Aunarky): project setup, main scene, inventory and placement.
 - kailo9: plant classes and stats, difficulty, timers and tutorial text.
