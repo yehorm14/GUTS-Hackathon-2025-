@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://dpajb7x0khxou"]
+
+[ext_resource type="PackedScene" uid="uid://cnrnb6c7mql8p" path="res://entities/wind_gust.tscn" id="1_bg3y3"]
+[ext_resource type="Texture2D" uid="uid://cu6uhrfrfqfid" path="res://art/effects/wind_torn.png" id="2_ocyks"]
+[ext_resource type="Script" uid="uid://c5t6ch3ybxnw" path="res://entities/tornado.gd" id="2_tx6c3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbodo"]
+atlas = ExtResource("2_ocyks")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6673"]
+atlas = ExtResource("2_ocyks")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwhbx"]
+atlas = ExtResource("2_ocyks")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tx6c3"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbodo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6673")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwhbx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Tornado" instance=ExtResource("1_bg3y3")]
+script = ExtResource("2_tx6c3")
+speed = 120.0
+damage = 8
+lifetime = 6.0
+spawn_interval = 0.2
+radius = 24.0
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_tx6c3")
+frame = 0

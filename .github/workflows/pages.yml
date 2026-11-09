@@ -1,0 +1,61 @@
+name: Build and deploy web export
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+env:
+  GODOT_VERSION: "4.5-stable"
+  GODOT_TEMPLATE_DIR: "4.5.stable"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Godot and export templates
+        run: |
+          base="https://github.com/godotengine/godot-builds/releases/download/${GODOT_VERSION}"
+          curl -fsSL -o godot.zip "${base}/Godot_v${GODOT_VERSION}_linux.x86_64.zip"
+          curl -fsSL -o templates.tpz "${base}/Godot_v${GODOT_VERSION}_export_templates.tpz"
+          unzip -q godot.zip
+          sudo mv "Godot_v${GODOT_VERSION}_linux.x86_64" /usr/local/bin/godot
+          mkdir -p "$HOME/.local/share/godot/export_templates"
+          unzip -q templates.tpz -d templates_tmp
+          mv templates_tmp/templates "$HOME/.local/share/godot/export_templates/${GODOT_TEMPLATE_DIR}"
+          rm -rf godot.zip templates.tpz templates_tmp
+
+      - name: Import project
+        run: |
+          godot --headless --import 2>&1 | tee import.log
+          # custom_samplers is a known harmless shader message from outline.gdshader
+          # fail on script or resource errors even if the exit code is 0
+          if grep -E "ERROR|Parse Error" import.log | grep -v custom_samplers | grep .; then exit 1; fi
+
+      - name: Export Web build
+        run: |
+          mkdir -p build/web
+          godot --headless --export-release "Web" build/web/index.html 2>&1 | tee export.log
+          if grep -E "ERROR|Parse Error" export.log | grep -v custom_samplers | grep .; then exit 1; fi
+          test -f build/web/index.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/web
+
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

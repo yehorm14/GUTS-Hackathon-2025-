@@ -37,8 +37,6 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_5uiee")
 centered = false
 script = ExtResource("2_vq8n1")
-item_description = "Low  water intake 
-Medium growtime 
-Low  regeneration
-High health
-Low harvest"
+health = 25
+item_description = "Health = 25, Water Usage = 50, Growth Duration = 8s, Harvest (points) = 2
+A medium strength crop with a medium growth time and a low water intake. Low harvest return."
